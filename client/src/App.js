@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./context/ToastContext";
 import Navbar from "./components/Navbar";
@@ -16,12 +16,14 @@ import "./styles/components.css";
 import "./styles/pages.css";
 
 function App() {
+  const location = useLocation();
+
   return (
     <AuthProvider>
       <ToastProvider>
         <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
           <Navbar />
-          <main style={{ flex: 1 }}>
+          <main style={{ flex: 1 }} className="page-enter" key={location.key}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />

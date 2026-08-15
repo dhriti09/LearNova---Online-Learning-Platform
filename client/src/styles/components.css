@@ -205,8 +205,8 @@
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(14px);
+  background: rgba(8, 7, 15, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
   border-bottom: 1px solid transparent;
   transition: box-shadow var(--transition), border-color var(--transition),
     background var(--transition);
@@ -485,7 +485,7 @@
 .enrolled-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: #d9d9ef;
+  border-color: var(--border-strong);
 }
 
 .course-card-media,
@@ -495,8 +495,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
-  background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+  color: var(--primary-dark);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(34, 211, 238, 0.14));
   overflow: hidden;
 }
 
@@ -516,7 +516,8 @@
   position: absolute;
   top: 10px;
   left: 10px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(8, 7, 15, 0.78);
+  backdrop-filter: blur(6px);
 }
 
 .course-card-body,
@@ -952,4 +953,129 @@
 
 .course-grid > *:nth-child(n + 7) {
   animation-delay: 500ms;
+}
+
+/* ---------- Dark cinematic shell ---------- */
+.navbar {
+  animation: navDrop 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes navDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.navbar.scrolled {
+  background: rgba(8, 7, 15, 0.88);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+.nav-links .nav-link::before {
+  content: "~/";
+  opacity: 0.5;
+  color: var(--primary-dark);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+}
+
+/* Glass cards get a subtle top highlight */
+.card,
+.course-card,
+.enrolled-card,
+.feature-card,
+.step-card,
+.stat-card,
+.auth-card {
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.card::before,
+.course-card::before,
+.feature-card::before,
+.step-card::before,
+.stat-card::before,
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(167, 139, 250, 0.55),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.card:hover::before,
+.course-card:hover::before,
+.feature-card:hover::before,
+.step-card:hover::before,
+.stat-card:hover::before,
+.auth-card:hover::before {
+  opacity: 1;
+}
+
+.course-card:hover,
+.enrolled-card:hover,
+.feature-card:hover,
+.step-card:hover,
+.stat-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(139, 92, 246, 0.12);
+}
+
+input,
+textarea,
+select {
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(148, 163, 184, 0.65);
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.09) 37%,
+    rgba(255, 255, 255, 0.04) 63%
+  );
+  background-size: 840px 100%;
 }
