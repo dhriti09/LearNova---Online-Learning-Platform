@@ -75,8 +75,12 @@ address only exists on your own machine, which is why a deployed build shows
 the Express API alongside the frontend as a Vercel serverless function
 (`api/[...path].js`), so the browser calls `/api/...` on the same domain.
 
-1. In the Vercel project settings, set **Root Directory** to the repository root
-   (not `client`). `vercel.json` builds `client/` and outputs `client/build`.
+1. In the Vercel project settings → **Build and Deployment**: set **Root
+   Directory** to the repository root (`./`, not `client`), set **Framework
+   Preset** to *Other*, and clear any **Build Command** / **Output Directory**
+   overrides so `vercel.json` is used. With Root Directory left as `client` the
+   build fails with `No Output Directory named "build" found`, because
+   `vercel.json` (which builds `client/` and outputs `client/build`) is ignored.
 2. Add these **Environment Variables** (Production + Preview):
    - `MONGO_USER`, `MONGO_PASSWORD`, `MONGO_HOST`, `MONGO_DB` — or a single
      `DB_URL` connection string instead
