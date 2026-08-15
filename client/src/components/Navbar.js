@@ -30,6 +30,21 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    if (!mobileOpen && !menuOpen) return undefined;
+
+    const startY = window.scrollY;
+    const onScroll = () => {
+      if (Math.abs(window.scrollY - startY) > 6) {
+        setMobileOpen(false);
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [mobileOpen, menuOpen]);
+
+  useEffect(() => {
     setMobileOpen(false);
     setMenuOpen(false);
   }, [location.pathname]);

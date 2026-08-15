@@ -4,8 +4,8 @@ import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import Avatar from "../components/Avatar";
+import CourseMedia from "../components/CourseMedia";
 import {
-  IconBook,
   IconCheck,
   IconCheckCircle,
   IconChevronDown,
@@ -103,28 +103,12 @@ export default function CourseDetail() {
           </div>
 
           <div className="enroll-card">
-            <div className="enroll-card-media">
-              {course.thumbnail ? (
-                <img
-                  src={course.thumbnail}
-                  alt=""
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              ) : (
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--accent)",
-                  }}
-                >
-                  <IconBook size={40} />
-                </div>
-              )}
-            </div>
+            <CourseMedia
+              course={course}
+              className="enroll-card-media course-card-media"
+              iconSize={34}
+              glyphSize={128}
+            />
 
             <div className="enroll-card-price">
               {course.price ? `\u20b9${course.price}` : "Free"}

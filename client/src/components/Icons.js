@@ -36,6 +36,98 @@ export const IconBook = (props) => (
   </Icon>
 );
 
+export const IconCode = (props) => (
+  <Icon {...props}>
+    <path d="m9 18-6-6 6-6" />
+    <path d="m15 6 6 6-6 6" />
+  </Icon>
+);
+
+export const IconBraces = (props) => (
+  <Icon {...props}>
+    <path d="M8 3H7a2 2 0 0 0-2 2v4l-2 3 2 3v4a2 2 0 0 0 2 2h1" />
+    <path d="M16 3h1a2 2 0 0 1 2 2v4l2 3-2 3v4a2 2 0 0 1-2 2h-1" />
+  </Icon>
+);
+
+export const IconAtom = (props) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="1.6" />
+    <ellipse cx="12" cy="12" rx="9.5" ry="4" />
+    <ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="9.5" ry="4" transform="rotate(120 12 12)" />
+  </Icon>
+);
+
+export const IconPalette = (props) => (
+  <Icon {...props}>
+    <path d="M12 21a9 9 0 1 1 9-9c0 2.2-1.8 3-3.4 3H16a2 2 0 0 0-1.4 3.4A2 2 0 0 1 12 21Z" />
+    <circle cx="8" cy="10" r="1" />
+    <circle cx="12" cy="7.5" r="1" />
+    <circle cx="15.8" cy="10" r="1" />
+  </Icon>
+);
+
+export const IconDatabase = (props) => (
+  <Icon {...props}>
+    <ellipse cx="12" cy="5.5" rx="7.5" ry="3" />
+    <path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13" />
+    <path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3" />
+  </Icon>
+);
+
+export const IconServer = (props) => (
+  <Icon {...props}>
+    <rect x="3" y="3.5" width="18" height="7" rx="2" />
+    <rect x="3" y="13.5" width="18" height="7" rx="2" />
+    <path d="M7 7h.01M7 17h.01" />
+  </Icon>
+);
+
+export const IconTerminal = (props) => (
+  <Icon {...props}>
+    <rect x="2.5" y="4" width="19" height="16" rx="2.5" />
+    <path d="m7 9.5 2.5 2.5L7 14.5" />
+    <path d="M12.5 15h4.5" />
+  </Icon>
+);
+
+export const IconBrain = (props) => (
+  <Icon {...props}>
+    <path d="M12 5.5A3.5 3.5 0 0 0 5.2 6.7 3 3 0 0 0 4 12a3.4 3.4 0 0 0 1.4 5A3.5 3.5 0 0 0 12 18.5Z" />
+    <path d="M12 5.5A3.5 3.5 0 0 1 18.8 6.7 3 3 0 0 1 20 12a3.4 3.4 0 0 1-1.4 5A3.5 3.5 0 0 1 12 18.5Z" />
+  </Icon>
+);
+
+export const IconChart = (props) => (
+  <Icon {...props}>
+    <path d="M4 20V4" />
+    <path d="M4 20h16" />
+    <rect x="7.5" y="12" width="3" height="5" rx="1" />
+    <rect x="13" y="8" width="3" height="9" rx="1" />
+  </Icon>
+);
+
+export const IconSmartphone = (props) => (
+  <Icon {...props}>
+    <rect x="6" y="2.5" width="12" height="19" rx="3" />
+    <path d="M10.5 18.5h3" />
+  </Icon>
+);
+
+export const IconShield = (props) => (
+  <Icon {...props}>
+    <path d="M12 21c4.5-1.9 7-5.4 7-9.5V5.5L12 3 5 5.5v6c0 4.1 2.5 7.6 7 9.5Z" />
+    <path d="m9.2 11.8 2 2 3.6-3.6" />
+  </Icon>
+);
+
+export const IconCloud = (props) => (
+  <Icon {...props}>
+    <path d="M7.5 18h9.5a3.5 3.5 0 0 0 .4-7A5.5 5.5 0 0 0 6.6 9.8 4.1 4.1 0 0 0 7.5 18Z" />
+  </Icon>
+);
+
 export const IconLayers = (props) => (
   <Icon {...props}>
     <path d="m12 3 9 5-9 5-9-5 9-5Z" />

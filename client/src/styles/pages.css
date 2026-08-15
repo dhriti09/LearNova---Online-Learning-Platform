@@ -450,6 +450,7 @@
 }
 
 .instructor-course-thumb {
+  position: relative;
   width: 62px;
   height: 52px;
   border-radius: var(--radius-md);
@@ -548,10 +549,13 @@
 }
 
 .enroll-card-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 150px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.20), rgba(34, 211, 238, 0.12));
   margin-bottom: 16px;
 }
 

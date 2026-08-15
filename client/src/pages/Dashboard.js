@@ -6,6 +6,7 @@ import { useToast } from "../context/ToastContext";
 import StatCard from "../components/StatCard";
 import EmptyState from "../components/EmptyState";
 import { CourseCardSkeletonGrid } from "../components/CourseCardSkeleton";
+import CourseMedia from "../components/CourseMedia";
 import {
   IconBook,
   IconLayers,
@@ -141,17 +142,11 @@ function StudentDashboard({ user }) {
           <div className="course-grid">
             {enrolled.map((course) => (
               <div className="enrolled-card" key={course._id}>
-                <div className="enrolled-card-media">
-                  {course.thumbnail ? (
-                    <img
-                      src={course.thumbnail}
-                      alt=""
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                  ) : (
-                    <IconBook size={32} />
-                  )}
-                </div>
+                <CourseMedia
+                  course={course}
+                  className="enrolled-card-media"
+                  showChips={false}
+                />
                 <div className="enrolled-card-body">
                   <span className="badge badge-enrolled">Enrolled</span>
                   <div className="enrolled-card-title">{course.title}</div>
@@ -266,17 +261,13 @@ function InstructorDashboard({ user }) {
         {!loading &&
           courses.map((course) => (
             <div className="instructor-course-row" key={course._id}>
-              <div className="instructor-course-thumb">
-                {course.thumbnail ? (
-                  <img
-                    src={course.thumbnail}
-                    alt=""
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                ) : (
-                  <IconBook size={22} />
-                )}
-              </div>
+              <CourseMedia
+                course={course}
+                className="instructor-course-thumb"
+                iconSize={20}
+                glyphSize={56}
+                showChips={false}
+              />
               <div className="instructor-course-info">
                 <div className="instructor-course-title">{course.title}</div>
                 <div className="instructor-course-meta">

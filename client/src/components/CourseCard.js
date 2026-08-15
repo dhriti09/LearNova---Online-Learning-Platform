@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
-import { IconBook, IconLayers, IconArrowRight } from "./Icons";
+import { IconLayers, IconArrowRight } from "./Icons";
+import CourseMedia from "./CourseMedia";
 
 export default function CourseCard({ course, enrolled = false }) {
   const lessonCount = course.lessons?.length || 0;
 
   return (
     <article className="course-card">
-      <div className="course-card-media">
-        {course.thumbnail ? (
-          <img src={course.thumbnail} alt="" loading="lazy" />
-        ) : (
-          <IconBook size={32} />
-        )}
+      <CourseMedia course={course}>
         {enrolled && <span className="badge badge-enrolled">Enrolled</span>}
-      </div>
+      </CourseMedia>
 
       <div className="course-card-body">
         <h3 className="course-card-title">{course.title}</h3>
