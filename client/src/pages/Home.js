@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import CourseCard from "../components/CourseCard";
 import { CourseCardSkeletonGrid } from "../components/CourseCardSkeleton";
 import EmptyState from "../components/EmptyState";
+import Reveal from "../components/Reveal";
 import {
   IconArrowRight,
   IconBook,
@@ -176,7 +177,7 @@ export default function Home() {
 
       <div className="container">
         {/* Why choose us */}
-        <section className="section-tight">
+        <Reveal as="section" className="section-tight">
           <div className="section-header">
             <span className="eyebrow">Why Learnova</span>
             <h2 className="section-title">Built around how people actually learn</h2>
@@ -215,10 +216,10 @@ export default function Home() {
               <p>Your enrolled courses go with you &mdash; pick up right where you left off.</p>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Popular courses */}
-        <section className="section-tight">
+        <Reveal as="section" className="section-tight">
           <div className="section-head-row">
             <div>
               <span className="eyebrow" style={{ justifyContent: "flex-start" }}>
@@ -261,10 +262,10 @@ export default function Home() {
               ))}
             </div>
           )}
-        </section>
+        </Reveal>
 
         {/* How it works */}
-        <section className="section-tight">
+        <Reveal as="section" className="section-tight">
           <div className="section-header">
             <span className="eyebrow">Getting started</span>
             <h2 className="section-title">How it works</h2>
@@ -286,10 +287,10 @@ export default function Home() {
               <p>Work through the lessons at your own pace and track what you've enrolled in.</p>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Instructor CTA */}
-        <section className="section-tight">
+        <Reveal as="section" className="section-tight">
           <div className="dark-section">
             <div className="dark-section-content">
               <span
@@ -311,10 +312,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* Final CTA */}
-        <section className="final-cta">
+        <Reveal as="section" className="final-cta">
           <h2>Ready to start learning?</h2>
           <p style={{ maxWidth: 460 }}>
             Create a free account and enroll in your first course today.
@@ -329,7 +330,7 @@ export default function Home() {
               </Link>
             )}
           </div>
-        </section>
+        </Reveal>
       </div>
     </div>
   );
