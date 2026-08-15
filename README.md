@@ -1,4 +1,4 @@
-# 📚 Online Learning Platform
+# 📚 Online Learning Platform(MERN)
 
 A modern and responsive **Online Learning Platform** built with the **MERN Stack**. It allows instructors to create and publish courses, while students can browse available courses and enroll in them through an easy-to-use web interface.
 
