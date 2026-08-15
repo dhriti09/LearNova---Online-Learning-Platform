@@ -67,6 +67,28 @@ This opens the app at http://localhost:3000, talking to the API at http://localh
 3. Register a second account as a **student** (use a different email, or log out first).
 4. Browse **Courses**, open the one you made, click **Enroll**.
 
+## Deploying to Vercel (frontend + API in one project)
+
+The React app cannot talk to `http://localhost:8080` once it is deployed — that
+address only exists on your own machine, which is why a deployed build shows
+"Registration failed" and "Could not load courses". This repo therefore deploys
+the Express API alongside the frontend as a Vercel serverless function
+(`api/[...path].js`), so the browser calls `/api/...` on the same domain.
+
+1. In the Vercel project settings, set **Root Directory** to the repository root
+   (not `client`). `vercel.json` builds `client/` and outputs `client/build`.
+2. Add these **Environment Variables** (Production + Preview):
+   - `MONGO_USER`, `MONGO_PASSWORD`, `MONGO_HOST`, `MONGO_DB` — or a single
+     `DB_URL` connection string instead
+   - `JWT_SECRET`
+3. In MongoDB Atlas → **Network Access**, allow `0.0.0.0/0` (Vercel functions do
+   not have fixed IPs).
+4. Redeploy. `https://<your-app>.vercel.app/api/health` should return
+   `{"status":"ok","database":"connected"}`.
+
+Local development is unchanged: `server/npm start` still serves the API on port
+8080 and `client/.env` still points at it.
+
 ## Notes
 
 - Passwords are hashed with bcrypt before being stored.
