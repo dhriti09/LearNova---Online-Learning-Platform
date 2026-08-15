@@ -1050,3 +1050,10 @@
     filter: none;
   }
 }
+
+@media (max-width: 640px) {
+  .hero-blob {
+    opacity: 0.22;
+    filter: blur(80px);
+  }
+}
